@@ -15,8 +15,10 @@ import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Textarea } from '@/components/ui/textarea';
 import { CheckIcon, ChevronLeftIcon, ChevronRightIcon } from 'lucide-react';
+import { submitPatentApplication } from '@/lib/actions/submit-patent-application';
+import { useRouter } from 'next/navigation';
 
-type FormData = {
+export type FormData = {
 	inventionStage: string;
 	priorArtSearch: string;
 	novelty: string;
@@ -370,6 +372,15 @@ export function PatentApplicationForm() {
 		},
 	];
 
+	const [submitting, setSubmitting] = useState(false);
+	const [submitResult, setSubmitResult] = useState<{
+		success: boolean;
+		message: string;
+		report?: string | null;
+	} | null>(null);
+
+	const router = useRouter();
+
 	const handleNext = () => {
 		if (step < steps.length - 1 && steps[step].isValid()) {
 			setStep(step + 1);
@@ -382,10 +393,28 @@ export function PatentApplicationForm() {
 		}
 	};
 
-	const handleSubmit = () => {
+	const handleSubmit = async () => {
 		if (steps[step].isValid()) {
-			console.log('Form submitted:', formData);
-			// Here you would typically send the data to a server or perform further actions
+			setSubmitting(true);
+			try {
+				const result = await submitPatentApplication(formData);
+				localStorage.setItem('patentReport', JSON.stringify(result.report));
+				localStorage.setItem('patentFormData', JSON.stringify(formData));
+				if (result.success && result.report) {
+					localStorage.setItem('patentReport', JSON.stringify(result.report));
+					router.push('/report');
+				} else {
+					setSubmitResult(result);
+				}
+			} catch (error) {
+				setSubmitResult({
+					success: false,
+					message: 'An error occurred while submitting the form.',
+					report: null,
+				});
+			} finally {
+				setSubmitting(false);
+			}
 		}
 	};
 
@@ -400,22 +429,48 @@ export function PatentApplicationForm() {
 				<h3 className="text-lg font-semibold mb-2">{steps[step].title}</h3>
 				<p className="text-sm text-gray-500 mb-4">{steps[step].description}</p>
 				{steps[step].content}
+				{submitResult && (
+					<div
+						className={`mt-4 p-4 rounded ${
+							submitResult.success
+								? 'bg-green-100 text-green-800'
+								: 'bg-red-100 text-red-800'
+						}`}
+					>
+						<p className="font-semibold">{submitResult.message}</p>
+						{submitResult.report && (
+							<div className="mt-4">
+								<h4 className="font-semibold mb-2">Patent Ability Report:</h4>
+								<div className="whitespace-pre-wrap text-sm">
+									{submitResult.report}
+								</div>
+							</div>
+						)}
+					</div>
+				)}
 			</CardContent>
 			<CardFooter className="flex justify-between">
 				<Button
 					variant="outline"
 					onClick={handlePrevious}
-					disabled={step === 0}
+					disabled={step === 0 || submitting}
 				>
 					<ChevronLeftIcon className="mr-2 h-4 w-4" /> Previous
 				</Button>
 				{step < steps.length - 1 ? (
-					<Button onClick={handleNext} disabled={!steps[step].isValid()}>
+					<Button
+						onClick={handleNext}
+						disabled={!steps[step].isValid() || submitting}
+					>
 						Next <ChevronRightIcon className="ml-2 h-4 w-4" />
 					</Button>
 				) : (
-					<Button onClick={handleSubmit} disabled={!steps[step].isValid()}>
-						Submit <CheckIcon className="ml-2 h-4 w-4" />
+					<Button
+						onClick={handleSubmit}
+						disabled={!steps[step].isValid() || submitting}
+					>
+						{submitting ? 'Submitting...' : 'Submit'}{' '}
+						<CheckIcon className="ml-2 h-4 w-4" />
 					</Button>
 				)}
 			</CardFooter>
