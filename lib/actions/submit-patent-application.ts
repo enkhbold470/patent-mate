@@ -67,12 +67,14 @@ Based on the following information about a potential patent application, provide
 12. Need Confidentiality Agreement: ${
 		formData.needConfidentialityAgreement ? 'Yes' : 'No'
 	}
+13. NDA Agreed: ${formData.ndaAgreed ? 'Yes' : 'No'}
+14. Patent Description: ${formData.patentDescription}
 
 Please provide:
-1. An assessment of the invention's patentability based on the provided information.
+1. An assessment of the invention's patentability based on the provided information, especially considering the detailed patent description.
 2. Potential challenges or concerns regarding the patent application.
-3. Suggestions for strengthening the patent application.
-4. Recommendations for next steps in the patent application process.
+3. Suggestions for strengthening the patent application, including any areas where the description could be improved or expanded.
+4. Recommendations for next steps in the patent application process, taking into account the NDA status.
 5. Any additional insights or considerations based on the provided information.
 
 Please structure your response in clear sections with headings for each of the above points.`;
