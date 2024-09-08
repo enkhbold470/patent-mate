@@ -20,6 +20,11 @@ export function Header() {
 								<Button variant="ghost">Patent Search</Button>
 							</Link>
 						</li>
+						<li>
+							<Link href="/invention-disclosure-analysis">
+								<Button variant="ghost">Invention Disclosure Analysis</Button>
+							</Link>
+						</li>
 					</ul>
 				</nav>
 			</div>

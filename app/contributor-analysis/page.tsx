@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { PlusIcon, TrashIcon } from 'lucide-react';
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
 interface Contribution {
   description: string;
@@ -20,6 +21,7 @@ interface Contributor {
 export default function ContributorAnalysisPage() {
   const [contributions, setContributions] = useState<Contribution[]>([]);
   const [contributors, setContributors] = useState<Contributor[]>([]);
+  const [showAlert, setShowAlert] = useState(false);
 
   useEffect(() => {
     const storedAnalysis = localStorage.getItem('contributorAnalysis');
@@ -66,7 +68,8 @@ export default function ContributorAnalysisPage() {
       contributors,
     };
     localStorage.setItem('contributorAnalysis', JSON.stringify(analysisData));
-    alert('Contributors and contributions have been saved to local storage.');
+    setShowAlert(true);
+    setTimeout(() => setShowAlert(false), 3000); // Hide alert after 3 seconds
   };
 
   return (
@@ -85,22 +88,23 @@ export default function ContributorAnalysisPage() {
           <CardContent>
             <div className="space-y-4 max-h-[calc(100vh-300px)] overflow-y-auto">
               {contributions.map((contribution, index) => (
-                <div key={index} className="space-y-2 relative">
-                  <h3 className="text-lg font-semibold pr-8">Contribution {index + 1}</h3>
+                <div key={index} className="space-y-2">
+                  <div className="flex justify-between items-center">
+                    <h3 className="text-lg font-semibold">Contribution {index + 1}</h3>
+                    <Button
+                      variant="destructive"
+                      size="sm"
+                      onClick={() => removeContribution(index)}
+                    >
+                      <TrashIcon className="w-4 h-4" />
+                    </Button>
+                  </div>
                   <Textarea
                     placeholder="Description"
                     value={contribution.description}
                     onChange={(e) => handleContributionChange(index, e.target.value)}
                     rows={3}
                   />
-                  <Button
-                    variant="destructive"
-                    size="sm"
-                    className="absolute top-0 right-0"
-                    onClick={() => removeContribution(index)}
-                  >
-                    <TrashIcon className="w-4 h-4" />
-                  </Button>
                 </div>
               ))}
             </div>
@@ -118,8 +122,17 @@ export default function ContributorAnalysisPage() {
           <CardContent>
             <div className="space-y-6 max-h-[calc(100vh-300px)] overflow-y-auto">
               {contributors.map((contributor, index) => (
-                <div key={index} className="space-y-2 relative">
-                  <h3 className="text-lg font-semibold pr-8">Contributor {index + 1}</h3>
+                <div key={index} className="space-y-2">
+                  <div className="flex justify-between items-center">
+                    <h3 className="text-lg font-semibold">Contributor {index + 1}</h3>
+                    <Button
+                      variant="destructive"
+                      size="sm"
+                      onClick={() => removeContributor(index)}
+                    >
+                      <TrashIcon className="w-4 h-4" />
+                    </Button>
+                  </div>
                   <Input
                     placeholder="Name"
                     value={contributor.name}
@@ -136,23 +149,23 @@ export default function ContributorAnalysisPage() {
                     onChange={(e) => handleInputChange(index, 'contribution', e.target.value)}
                     rows={3}
                   />
-                  <Button
-                    variant="destructive"
-                    size="sm"
-                    className="absolute top-0 right-0"
-                    onClick={() => removeContributor(index)}
-                  >
-                    <TrashIcon className="w-4 h-4" />
-                  </Button>
                 </div>
               ))}
             </div>
           </CardContent>
         </Card>
       </div>
-      <div className="flex justify-end">
+      <div className="flex justify-end mb-6">
         <Button onClick={handleSaveContributors}>Save Contributors</Button>
       </div>
+      {showAlert && (
+        <Alert className="fixed bottom-4 left-4 right-4 max-w-none">
+          <AlertTitle>Success</AlertTitle>
+          <AlertDescription>
+            Contributors and contributions have been saved to local storage.
+          </AlertDescription>
+        </Alert>
+      )}
     </div>
   );
 }
