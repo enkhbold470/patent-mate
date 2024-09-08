@@ -11,13 +11,6 @@ import {
 export default function Home() {
 	return (
 		<div className="container mx-auto px-4 py-16">
-			<header className="text-center mb-16">
-				<h1 className="text-4xl font-bold mb-4">PatentMate</h1>
-				<p className="text-xl text-muted-foreground">
-					Streamlining your patent journey from idea to application
-				</p>
-			</header>
-
 			<main className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
 				<Card>
 					<CardHeader>
