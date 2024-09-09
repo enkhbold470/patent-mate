@@ -1,4 +1,4 @@
-import { PatentApplicationForm } from "@/components/patent-application-form";
+import { PatentApplicationForm } from "@/components/patent-application-form.jsx";
 import {
   Card,
   CardContent,
