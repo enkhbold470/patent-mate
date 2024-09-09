@@ -30,7 +30,10 @@
     ".next/types/**/*.ts",
     "app/final-report/page.jsx",
     "lib/actions/find-suggested-attorneys.ts",
-    "lib/actions/find-similar-patents.js"
+    "lib/actions/find-similar-patents.js",
+    "lib/actions/submit-invention-disclosure.js",
+    "lib/actions/generate-final-report.js",
+    "lib/actions/submit-patent-application.js"
   ],
   "exclude": ["node_modules"]
 }
