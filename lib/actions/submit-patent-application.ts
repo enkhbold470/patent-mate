@@ -20,7 +20,7 @@ export async function submitPatentApplication(formData: FormData) {
 				},
 				{ role: 'user', content: prompt },
 			],
-			model: 'mixtral-8x7b-32768',
+			model: 'gemma-7b-it',
 			temperature: 0.5,
 			max_tokens: 2048,
 		});

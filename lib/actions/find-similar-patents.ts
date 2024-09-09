@@ -31,7 +31,7 @@ export async function findSimilarPatents(patentDescription: string) {
 					content: `Generate a concise abstract for the following patent description:\n\n${patentDescription}`,
 				},
 			],
-			model: 'mixtral-8x7b-32768',
+			model: 'gemma-7b-it',
 			temperature: 0.5,
 			max_tokens: 200,
 		});

@@ -56,7 +56,7 @@ Please provide the output in the following JSON format:
 				},
 				{ role: 'user', content: prompt },
 			],
-			model: 'mixtral-8x7b-32768',
+			model: 'gemma-7b-it',
 			temperature: 0.5,
 			max_tokens: 2048,
 			response_format: { type: 'json_object' },
