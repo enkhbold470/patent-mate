@@ -4,9 +4,8 @@ importlib-metadata==8.4.0
 importlib-resources==6.4.0
 ipykernel==6.29.5
 jaraco.text==3.12.1
-llama-index-embeddings-openai==0.2.4
-llama-index-readers-file==0.2.1
-llama-parse==0.5.2
+llama-index==0.11.7
+llama-index-extractors-entity==0.2.0
 ordered-set==4.1.0
 pickleshare==0.7.5
 pinecone==5.0.1
