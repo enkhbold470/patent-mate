@@ -473,7 +473,7 @@ It is understood that no patent right or license is hereby granted to RECIPIENT 
 				localStorage.setItem('patentFormData', JSON.stringify(formData));
 				if (result.success && result.report) {
 					localStorage.setItem('patentReport', JSON.stringify(result.report));
-					router.push('/report');
+					router.push('/patent-ability-report');
 				} else {
 					setSubmitResult(result);
 				}

@@ -17,7 +17,7 @@ export function Header() {
 						</li>
 						<li>
 							<Link href="/ability-search">
-								<Button variant="ghost">Patent Search</Button>
+								<Button variant="default">Get Started</Button>
 							</Link>
 						</li>
 					</ul>

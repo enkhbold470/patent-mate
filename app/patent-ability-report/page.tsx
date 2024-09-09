@@ -5,8 +5,9 @@ import ReactMarkdown from 'react-markdown';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { jsPDF } from 'jspdf';
+import Link from 'next/link';
 
-export default function ReportPage() {
+export default function PatentAbilityReportPage() {
 	const [report, setReport] = useState<string | null>(null);
 
 	useEffect(() => {
@@ -38,9 +39,14 @@ export default function ReportPage() {
 				</CardHeader>
 				<CardContent>
 					<ReactMarkdown className="prose">{report}</ReactMarkdown>
-					<Button onClick={downloadPDF} className="mt-4">
-						Download as PDF
-					</Button>
+					<div className="flex justify-between mt-4">
+						<Button onClick={downloadPDF}>Download as PDF</Button>
+						<Link href="/invention-disclosure-analysis">
+							<Button variant="outline">
+								Proceed to Invention Disclosure Analysis
+							</Button>
+						</Link>
+					</div>
 				</CardContent>
 			</Card>
 		</div>
