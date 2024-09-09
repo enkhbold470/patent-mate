@@ -26,8 +26,11 @@
     "**/*.ts",
     "**/*.tsx",
     "**/*.jsx",
+
     ".next/types/**/*.ts",
-    "app/final-report/page.jsx"
+    "app/final-report/page.jsx",
+    "lib/actions/find-suggested-attorneys.ts",
+    "lib/actions/find-similar-patents.js"
   ],
   "exclude": ["node_modules"]
 }
