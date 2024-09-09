@@ -1,0 +1,218 @@
+[
+    {
+        "name": "Alice Johnson",
+        "specialty": "Biotechnology",
+        "summary": "Expert in patenting biopharmaceuticals and genetic engineering innovations.",
+        "budget_range": {
+            "start": 5000,
+            "end": 15000
+        },
+        "location": "San Francisco, CA",
+        "years_of_experience": 8,
+        "contact": "alice.johnson@example.com"
+    },
+    {
+        "name": "Bob Smith",
+        "specialty": "Software Patents",
+        "summary": "Specializes in software and technology patents, focusing on AI and machine learning.",
+        "budget_range": {
+            "start": 3000,
+            "end": 12000
+        },
+        "location": "New York, NY",
+        "years_of_experience": 10,
+        "contact": "bob.smith@example.com"
+    },
+    {
+        "name": "Catherine Lee",
+        "specialty": "Mechanical Engineering",
+        "summary": "Focuses on patents related to mechanical devices and manufacturing processes.",
+        "budget_range": {
+            "start": 4000,
+            "end": 10000
+        },
+        "location": "Chicago, IL",
+        "years_of_experience": 12,
+        "contact": "catherine.lee@example.com"
+    },
+    {
+        "name": "David Brown",
+        "specialty": "Electrical Engineering",
+        "summary": "Expert in electrical and electronic patent applications, including circuits and systems.",
+        "budget_range": {
+            "start": 6000,
+            "end": 20000
+        },
+        "location": "Austin, TX",
+        "years_of_experience": 15,
+        "contact": "david.brown@example.com"
+    },
+    {
+        "name": "Eva Green",
+        "specialty": "Pharmaceuticals",
+        "summary": "Specializes in patenting new drug formulations and delivery systems.",
+        "budget_range": {
+            "start": 7000,
+            "end": 25000
+        },
+        "location": "Boston, MA",
+        "years_of_experience": 9,
+        "contact": "eva.green@example.com"
+    },
+    {
+        "name": "Frank White",
+        "specialty": "Quantum Computing",
+        "summary": "Focuses on patents related to quantum algorithms and quantum hardware innovations.",
+        "budget_range": {
+            "start": 8000,
+            "end": 30000
+        },
+        "location": "Seattle, WA",
+        "years_of_experience": 5,
+        "contact": "frank.white@example.com"
+    },
+    {
+        "name": "Grace Black",
+        "specialty": "Design Patents",
+        "summary": "Expert in design patents, focusing on product aesthetics and industrial designs.",
+        "budget_range": {
+            "start": 2500,
+            "end": 8000
+        },
+        "location": "Los Angeles, CA",
+        "years_of_experience": 7,
+        "contact": "grace.black@example.com"
+    },
+    {
+        "name": "Henry Adams",
+        "specialty": "Telecommunications",
+        "summary": "Specializes in patents related to telecommunications technologies and standards.",
+        "budget_range": {
+            "start": 5000,
+            "end": 15000
+        },
+        "location": "Miami, FL",
+        "years_of_experience": 14,
+        "contact": "henry.adams@example.com"
+    },
+    {
+        "name": "Isabella Martinez",
+        "specialty": "Environmental Technology",
+        "summary": "Focuses on patents for sustainable technologies and environmental innovations.",
+        "budget_range": {
+            "start": 6000,
+            "end": 22000
+        },
+        "location": "Denver, CO",
+        "years_of_experience": 6,
+        "contact": "isabella.martinez@example.com"
+    },
+    {
+        "name": "Jack Wilson",
+        "specialty": "Artificial Intelligence",
+        "summary": "Expert in patenting AI algorithms and applications across various industries.",
+        "budget_range": {
+            "start": 8000,
+            "end": 30000
+        },
+        "location": "San Diego, CA",
+        "years_of_experience": 13,
+        "contact": "jack.wilson@example.com"
+    },
+    {
+        "name": "Laura Chen",
+        "specialty": "Time Travel Technologies",
+        "summary": "Specializes in patents related to theoretical and practical aspects of time travel inventions.",
+        "budget_range": {
+            "start": 10000,
+            "end": 50000
+        },
+        "location": "Philadelphia, PA",
+        "years_of_experience": 4,
+        "contact": "laura.chen@example.com"
+    },
+    {
+        "name": "Michael Scott",
+        "specialty": "Nanotechnology",
+        "summary": "Focuses on patents in the field of nanotechnology and its applications.",
+        "budget_range": {
+            "start": 9000,
+            "end": 35000
+        },
+        "location": "Houston, TX",
+        "years_of_experience": 11,
+        "contact": "michael.scott@example.com"
+    },
+    {
+        "name": "Nina Patel",
+        "specialty": "Renewable Energy",
+        "summary": "Expert in patents for renewable energy technologies, including solar and wind energy.",
+        "budget_range": {
+            "start": 5000,
+            "end": 20000
+        },
+        "location": "Phoenix, AZ",
+        "years_of_experience": 10,
+        "contact": "nina.patel@example.com"
+    },
+    {
+        "name": "Oliver Thompson",
+        "specialty": "Robotics",
+        "summary": "Specializes in patents related to robotic systems and automation technologies.",
+        "budget_range": {
+            "start": 7000,
+            "end": 25000
+        },
+        "location": "Atlanta, GA",
+        "years_of_experience": 9,
+        "contact": "oliver.thompson@example.com"
+    },
+    {
+        "name": "Pamela Green",
+        "specialty": "Internet of Things (IoT)",
+        "summary": "Focuses on patents related to IoT devices and smart technology integration.",
+        "budget_range": {
+            "start": 4000,
+            "end": 15000
+        },
+        "location": "Dallas, TX",
+        "years_of_experience": 8,
+        "contact": "pamela.green@example.com"
+    },
+    {
+        "name": "Quentin Harris",
+        "specialty": "Blockchain Technology",
+        "summary": "Expert in patents for blockchain applications and cryptocurrencies.",
+        "budget_range": {
+            "start": 6000,
+            "end": 22000
+        },
+        "location": "San Jose, CA",
+        "years_of_experience": 7,
+        "contact": "quentin.harris@example.com"
+    },
+    {
+        "name": "Rachel Adams",
+        "specialty": "Augmented Reality (AR)",
+        "summary": "Specializes in patents for AR technologies and applications in various fields.",
+        "budget_range": {
+            "start": 5000,
+            "end": 18000
+        },
+        "location": "Boston, MA",
+        "years_of_experience": 9,
+        "contact": "rachel.adams@example.com"
+    },
+    {
+        "name": "Sam Wilson",
+        "specialty": "Virtual Reality (VR)",
+        "summary": "Focuses on patents for VR technologies and immersive environments.",
+        "budget_range": {
+            "start": 4500,
+            "end": 17000
+        },
+        "location": "Los Angeles, CA",
+        "years_of_experience": 6,
+        "contact": "sam.wilson@example.com"
+    }
+]
