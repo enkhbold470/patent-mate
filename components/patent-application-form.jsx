@@ -26,7 +26,7 @@ export function PatentApplicationForm() {
     priorArtSearch: "",
     novelty: "",
     publicDisclosure: "",
-    patentGoals: [] as string[],
+    patentGoals: [],
     otherGoal: "",
     protectionRegions: "",
     timeline: "",
@@ -39,21 +39,18 @@ export function PatentApplicationForm() {
     patentDescription: "",
   });
 
-  const updateFormData = (
-    field: keyof typeof formData,
-    value: string | string[] | boolean
-  ) => {
+  const updateFormData = (field, value) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
-  const fileInputRef = useRef<HTMLInputElement>(null);
+  const fileInputRef = useRef(null);
 
-  const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileUpload = (event) => {
     const file = event.target.files?.[0];
     if (file) {
       const reader = new FileReader();
       reader.onload = (e) => {
-        const content = e.target?.result as string;
+        const content = e.target?.result;
         updateFormData("patentDescription", content);
       };
       reader.readAsText(file);
@@ -95,7 +92,7 @@ export function PatentApplicationForm() {
         >
           <div className="flex items-center space-x-2">
             <RadioGroupItem value="self" id="self" />
-            <Label htmlFor="self">Yes, I have conducted searches myself.</Label>
+            <Label htmlFor="self">I have conducted searches myself.</Label>
           </div>
           <div className="flex items-center space-x-2">
             <RadioGroupItem value="professional" id="professional" />
@@ -448,11 +445,7 @@ It is understood that no patent right or license is hereby granted to RECIPIENT 
   ];
 
   const [submitting, setSubmitting] = useState(false);
-  const [submitResult, setSubmitResult] = useState<{
-    success: boolean;
-    message: string;
-    report?: string | null;
-  } | null>(null);
+  const [submitResult, setSubmitResult] = useState(null);
 
   const router = useRouter();
 
