@@ -8,6 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { PlusIcon, TrashIcon } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { Toaster } from '@/components/ui/toaster';
+import { useRouter } from 'next/navigation';
 
 interface Contribution {
 	description: string;
@@ -23,6 +24,7 @@ export default function ContributorAnalysisPage() {
 	const [contributions, setContributions] = useState<Contribution[]>([]);
 	const [contributors, setContributors] = useState<Contributor[]>([]);
 	const { toast } = useToast();
+	const router = useRouter();
 
 	useEffect(() => {
 		const storedAnalysis = localStorage.getItem('contributorAnalysis');
@@ -83,6 +85,7 @@ export default function ContributorAnalysisPage() {
 			title: 'Success',
 			description: 'Contributors and contributions have been saved.',
 		});
+		router.push('/final-report');
 	};
 
 	return (
@@ -178,9 +181,12 @@ export default function ContributorAnalysisPage() {
 					</CardContent>
 				</Card>
 			</div>
-			<div className="flex justify-end">
+			<div className="flex justify-end space-x-4">
 				<Button onClick={handleFinalizeInventionDisclosure}>
 					Finalize Invention Disclosure
+				</Button>
+				<Button onClick={() => router.push('/final-report')}>
+					View Final Report
 				</Button>
 			</div>
 			<Toaster />
