@@ -1,0 +1,6 @@
+.env
+technology/
+dataset/
+data/
+USPTO_DATABASE.sql
+metadata.json
